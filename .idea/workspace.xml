@@ -11,7 +11,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ca1f6be-50f3-4cc0-b96d-6868c7b64054" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/listes_des_courses.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/listes_des_courses.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +67,28 @@
       <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/dotenv" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/persistence" />
+      <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
+      <path value="$PROJECT_DIR$/vendor/ocramius/proxy-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jhQWLM6qwyD3Y5xgxEI4wnWj0V" />
@@ -96,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604253874251</updated>
-      <workItem from="1604253875455" duration="2431000" />
+      <workItem from="1604253875455" duration="3397000" />
     </task>
     <task id="LOCAL-00001" summary="first commit:&#10;* create file README.md">
       <created>1604255513837</created>
@@ -112,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604255705536</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first commit in develop">
+      <created>1604256470724</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604256470724</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,13 +167,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit:&#10;* create file README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit:&#10;* create file README.md" />
+    <MESSAGE value="first commit in develop" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit in develop" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604255709236">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604256474506">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604255709236" />
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604256474506" />
     <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604255655284">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
