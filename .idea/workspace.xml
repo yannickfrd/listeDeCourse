@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -10,13 +13,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ca1f6be-50f3-4cc0-b96d-6868c7b64054" name="Default Changelist" comment="" />
+    <list default="true" id="2ca1f6be-50f3-4cc0-b96d-6868c7b64054" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/listes_des_courses.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/listes_des_courses.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -82,6 +93,9 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
       <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jhQWLM6qwyD3Y5xgxEI4wnWj0V" />
@@ -90,8 +104,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -103,9 +119,13 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\listes_des_courses\src\Controller\Api" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\listes_des_courses" />
     </key>
@@ -118,7 +138,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604253874251</updated>
-      <workItem from="1604253875455" duration="4061000" />
+      <workItem from="1604253875455" duration="6186000" />
+      <workItem from="1604264297965" duration="7759000" />
     </task>
     <task id="LOCAL-00001" summary="first commit:&#10;* create file README.md">
       <created>1604255513837</created>
@@ -148,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604259291691</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Initialisation de l'envireonnement de developpement:&#10;* db create">
+      <created>1604259435874</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1604259435874</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +192,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit:&#10;* create file README.md" />
@@ -172,13 +201,29 @@
     <option name="LAST_COMMIT_MESSAGE" value="Initialisation de l'envireonnement de developpement:&#10;* db create" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="348" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604264450716">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="348" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1474.864@62.0.1474.864" timestamp="1604264450716" />
+    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1604264334111">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state width="189" height="457" key="HiddenNamespacesPopup/62.0.1474.864@62.0.1474.864" timestamp="1604264334111" />
+    <state x="622" y="153" key="RollbackChangesDialog" timestamp="1604270769987">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="622" y="153" key="RollbackChangesDialog/62.0.1474.864@62.0.1474.864" timestamp="1604270769987" />
+    <state x="308" y="77" key="SettingsEditor" timestamp="1604264224245">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="308" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1604264224245" />
     <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604256474506">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604256474506" />
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604255655284">
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604272753951">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1604255655284" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1604272753951" />
   </component>
 </project>
