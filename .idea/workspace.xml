@@ -11,7 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ca1f6be-50f3-4cc0-b96d-6868c7b64054" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,6 +83,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\listes_des_courses" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -91,7 +96,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604253874251</updated>
-      <workItem from="1604253875455" duration="1776000" />
+      <workItem from="1604253875455" duration="2431000" />
     </task>
     <task id="LOCAL-00001" summary="first commit:&#10;* create file README.md">
       <created>1604255513837</created>
@@ -100,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604255513837</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="first commit:&#10;* create file README.md">
+      <created>1604255705536</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604255705536</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,10 +134,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="first commit:&#10;* create file README.md" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604255561431">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604255709236">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604255561431" />
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604255709236" />
     <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604255655284">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
