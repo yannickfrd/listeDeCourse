@@ -2,9 +2,10 @@
 
 namespace App\Entity;
 
-use App\Repository\CheckListRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,32 +21,37 @@ class CheckList {
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Groups({"get_user"})
      */
     private $title;
 
     /**
      * @ORM\Column(type="datetime_immutable")
+     * @Groups({"get_user"})
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Groups({"get_user"})
      */
     private $isFinished;
 
     /**
      * @ORM\OneToMany(targetEntity=Element::class, mappedBy="checkList", orphanRemoval=true)
+     * @Groups({"get_user"})
      */
     private $elements;
 
     /**
      * @ORM\ManyToOne(targetEntity=Color::class, inversedBy="checkLists")
+     * @Groups({"get_user"})
      */
     private $color;
 
     public function __construct() {
         $this->isFinished = false;
-        $this->createdAt = new \DateTimeImmutable();
+        $this->createdAt = new DateTimeImmutable();
         $this->elements = new ArrayCollection();
     }
 
@@ -66,12 +72,12 @@ class CheckList {
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
 

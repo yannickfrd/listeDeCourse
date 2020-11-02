@@ -20,6 +20,8 @@
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Api/CheckListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/CheckListController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/CheckList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CheckList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +98,14 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
+      <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jhQWLM6qwyD3Y5xgxEI4wnWj0V" />
@@ -107,6 +117,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ChangesTree.GroupingKeys" value="directory" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -139,7 +150,8 @@
       <option name="presentableId" value="Default" />
       <updated>1604253874251</updated>
       <workItem from="1604253875455" duration="6186000" />
-      <workItem from="1604264297965" duration="7759000" />
+      <workItem from="1604264297965" duration="8042000" />
+      <workItem from="1604312658597" duration="2694000" />
     </task>
     <task id="LOCAL-00001" summary="first commit:&#10;* create file README.md">
       <created>1604255513837</created>
@@ -176,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1604259435874</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="bdd:&#10;* create table color&#10;* create table element&#10;* create table checklist&#10;fixture install:&#10;* use faker bundle&#10;optimizing code fixture">
+      <created>1604273124481</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1604273124481</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update .gitignore">
+      <created>1604312727427</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1604312727427</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +213,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="SHOW_DETAILS_IN_CHANGES" value="false" />
+            </State>
           </value>
         </entry>
       </map>
@@ -198,7 +226,9 @@
     <MESSAGE value="first commit:&#10;* create file README.md" />
     <MESSAGE value="first commit in develop" />
     <MESSAGE value="Initialisation de l'envireonnement de developpement:&#10;* db create" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialisation de l'envireonnement de developpement:&#10;* db create" />
+    <MESSAGE value="bdd:&#10;* create table color&#10;* create table element&#10;* create table checklist&#10;fixture install:&#10;* use faker bundle&#10;optimizing code fixture" />
+    <MESSAGE value="update .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="update .gitignore" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604264450716">
@@ -217,13 +247,13 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="308" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1604264224245" />
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604256474506">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604312738386">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604256474506" />
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604272753951">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604312738386" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604314723737">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1604272753951" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1604314723737" />
   </component>
 </project>
