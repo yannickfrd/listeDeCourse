@@ -19,9 +19,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Api/CheckListController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Api/CheckListController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/CheckList.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/CheckList.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,6 +104,12 @@
       <path value="$PROJECT_DIR$/vendor/symfony/serializer" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
       <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/symfony/intl" />
+      <path value="$PROJECT_DIR$/vendor/symfony/form" />
+      <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jhQWLM6qwyD3Y5xgxEI4wnWj0V" />
@@ -151,7 +155,8 @@
       <updated>1604253874251</updated>
       <workItem from="1604253875455" duration="6186000" />
       <workItem from="1604264297965" duration="8042000" />
-      <workItem from="1604312658597" duration="2694000" />
+      <workItem from="1604312658597" duration="21979000" />
+      <workItem from="1604336073553" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="first commit:&#10;* create file README.md">
       <created>1604255513837</created>
@@ -202,7 +207,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604312727427</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update api get CheckList">
+      <created>1604315572437</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1604315572437</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,13 +240,18 @@
     <MESSAGE value="Initialisation de l'envireonnement de developpement:&#10;* db create" />
     <MESSAGE value="bdd:&#10;* create table color&#10;* create table element&#10;* create table checklist&#10;fixture install:&#10;* use faker bundle&#10;optimizing code fixture" />
     <MESSAGE value="update .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update .gitignore" />
+    <MESSAGE value="update api get CheckList" />
+    <option name="LAST_COMMIT_MESSAGE" value="update api get CheckList" />
   </component>
   <component name="WindowStateProjectService">
     <state x="348" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604264450716">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="348" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1474.864@62.0.1474.864" timestamp="1604264450716" />
+    <state x="605" y="148" key="#com.intellij.ide.util.MemberChooser" timestamp="1604315957511">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="605" y="148" key="#com.intellij.ide.util.MemberChooser/62.0.1474.864@62.0.1474.864" timestamp="1604315957511" />
     <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1604264334111">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -247,13 +264,13 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="308" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1604264224245" />
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604312738386">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2" timestamp="1604315580419">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604312738386" />
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604314723737">
+    <state x="392" y="152" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1604315580419" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1604325443157">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1604314723737" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1604325443157" />
   </component>
 </project>
