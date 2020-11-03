@@ -6,16 +6,17 @@ use App\Repository\ElementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * Class Element
+ * @package App\Entity
  * @ORM\Entity(repositoryClass=ElementRepository::class)
  */
-class Element
-{
+class Element {
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -23,9 +24,10 @@ class Element
     private $name;
 
     /**
+     * @var bool
      * @ORM\Column(type="boolean")
      */
-    private $isChecked;
+    private $isChecked = false;
 
     /**
      * @ORM\ManyToOne(targetEntity=CheckList::class, inversedBy="elements")
@@ -33,15 +35,15 @@ class Element
     private $checkList;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Color::class, inversedBy="elements")
+     * @var string
+     * @ORM\Column(type="string", length=7)
      */
-    private $color;
+    private $colorHexa = "#ffe333";
 
-    public function __construct() {
-        $this->isChecked = false;
-    }
-
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
@@ -82,14 +84,14 @@ class Element
         return $this;
     }
 
-    public function getColor(): ?Color
+    public function getColorHexa(): ?string
     {
-        return $this->color;
+        return $this->colorHexa;
     }
 
-    public function setColor(?Color $color): self
+    public function setColorHexa(string $colorHexa): self
     {
-        $this->color = $color;
+        $this->colorHexa = $colorHexa;
 
         return $this;
     }

@@ -5,11 +5,15 @@ namespace App\Entity;
 use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Serializer\Annotation\Groups;
+use App\Repository\CheckListRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CheckListRepository::class)
+ * Class CheckList
+ * @package App\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CheckListRepository", repositoryClass=CheckListRepository::class)
  */
 class CheckList {
     /**
@@ -21,6 +25,7 @@ class CheckList {
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      * @Groups({"get_user"})
      */
     private $title;
@@ -35,7 +40,7 @@ class CheckList {
      * @ORM\Column(type="boolean")
      * @Groups({"get_user"})
      */
-    private $isFinished;
+    private $isFinished = false;
 
     /**
      * @ORM\OneToMany(targetEntity=Element::class, mappedBy="checkList", orphanRemoval=true)
@@ -44,18 +49,20 @@ class CheckList {
     private $elements;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Color::class, inversedBy="checkLists")
-     * @Groups({"get_user"})
+     * @var string
+     * @ORM\Column(type="string", length=7)
      */
-    private $color;
+    private $colorHexa = "#ffe333";
 
     public function __construct() {
-        $this->isFinished = false;
         $this->createdAt = new DateTimeImmutable();
         $this->elements = new ArrayCollection();
     }
 
-    public function getId(): ?int
+    /**
+     * @return mixed
+     */
+    public function getId()
     {
         return $this->id;
     }
@@ -75,13 +82,6 @@ class CheckList {
     public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
-    }
-
-    public function setCreatedAt(DateTimeImmutable $createdAt): self
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
     }
 
     public function getIsFinished(): ?bool
@@ -126,14 +126,14 @@ class CheckList {
         return $this;
     }
 
-    public function getColor(): ?Color
+    public function getColorHexa(): ?string
     {
-        return $this->color;
+        return $this->colorHexa;
     }
 
-    public function setColor(?Color $color): self
+    public function setColorHexa(string $colorHexa): self
     {
-        $this->color = $color;
+        $this->colorHexa = $colorHexa;
 
         return $this;
     }
