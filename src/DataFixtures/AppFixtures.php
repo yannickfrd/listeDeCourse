@@ -53,31 +53,32 @@ class AppFixtures extends Fixture {
         // New colors
         foreach ($colors as $key => $value){
             $color = new Color();
-            $color->setLibel($key)
-                ->setHex($value);
+            $color->setLibel($key)->setColorHexa($value);
             $manager->persist($color);
         }
 
         // New check lists
         for ($i=0; $i<3; $i++){
             $list = new CheckList();
-            $list->setTitle("Liste n°". $i)
-                ->setColor($this->faker->randomElement($this->repoColor->findAll()));
+            $list->setTitle("Liste n°". $i);
             $manager->persist($list);
             $manager->flush();
         }
 
         // New elements
         foreach ($this->repoList->findAll() as $list){
-            for ($i=0; $i<rand(0,25); $i++){
-                $elem = new Element();
-                $elem->setColor($this->faker->randomElement($this->repoColor->findAll()))
-                    ->setIsChecked($this->faker->boolean)
-                    ->setName($this->faker->text(rand(5,30)))
-                ;
-                $manager->persist($elem);
-                $list->addElement($elem);
-                $manager->persist($list);
+            for ($i=0; $i<rand(5,25); $i++){
+                if ($i > 5){
+                    $colorALl = $this->repoColor->findAll();
+                    $colorFake = $this->faker->randomElement($colorALl);
+                    $elem = new Element();
+                    $elem->setColorHexa($colorFake->getColorHexa())
+                        ->setIsChecked($this->faker->boolean)
+                        ->setName($this->faker->text(rand(5,30)))
+                    ;
+                    $manager->persist($elem);
+                    $list->addElement($elem);
+                }
             }
         }
         $manager->flush();
