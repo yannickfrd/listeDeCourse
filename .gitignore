@@ -10,7 +10,7 @@
 ###< symfony/framework-bundle ###
 
 ###> PhpStorm ###
-.idea
+/.idea
 ###< PhpStorm ###
 
 ###> symfony/phpunit-bridge ###
