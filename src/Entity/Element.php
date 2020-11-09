@@ -17,7 +17,7 @@ class Element {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    protected int $id;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -27,13 +27,13 @@ class Element {
      *     max="50", maxMessage="This value can't be exceed 50 char!!"
      * )
      */
-    private $name;
+    private string $name;
 
     /**
      * @var bool
      * @ORM\Column(type="boolean")
      */
-    private $isChecked = false;
+    private bool $isChecked = false;
 
     /**
      * @ORM\ManyToOne(targetEntity=CheckList::class, inversedBy="elements")
@@ -46,11 +46,11 @@ class Element {
      * @Assert\NotBlank(message="This value can't to be blank!!")
      * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
      * @Assert\Regex(
-     *     pattern     = "/^#+[a-f0-9]+$/i",
-     *     htmlPattern = "^#+[a-fA-F0-9]+$"
+     *     pattern     = "/^#[a-f0-9]+$/i",
+     *     htmlPattern = "^#[a-fA-F0-9]+$"
      * )
      */
-    private $colorHexa = "#ffe333";
+    private string $colorHexa = "#ffe333";
 
     /**
      * @return mixed
