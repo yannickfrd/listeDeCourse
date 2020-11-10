@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Class CheckList
  * @package App\Entity
- * @ORM\Entity(repositoryClass="App\Repository\CheckListRepository", repositoryClass=CheckListRepository::class)
+ * @ORM\Entity(repositoryClass=CheckListRepository::class)
  */
 class CheckList {
     /**
@@ -25,13 +25,7 @@ class CheckList {
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank(
-     *     message="This value can't to be blank!!"
-     * )
-     * @Assert\Length(
-     *     min="3", minMessage="This value is so short min 3 char!!",
-     *     max="50", maxMessage="This value can't be exceed 50 char!!"
-     *  )
+     * @Assert\NotBlank()
      * @Groups({"get_user"})
      */
     private $title;
@@ -57,12 +51,6 @@ class CheckList {
     /**
      * @var string
      * @ORM\Column(type="string", length=7)
-     * @Assert\NotBlank(message="This value can't to be blank!!")
-     * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
-     * @Assert\Regex(
-     *     pattern     = "/^#+[a-f0-9]+$/i",
-     *     htmlPattern = "^#+[a-fA-F0-9]+$"
-     * )
      */
     private $colorHexa = "#ffe333";
 

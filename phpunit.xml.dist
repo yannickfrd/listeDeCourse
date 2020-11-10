@@ -26,17 +26,8 @@
             <directory suffix=".php">src</directory>
         </whitelist>
     </filter>
-    <!-- Add this for PHPUnit 7.5 or higher -->
-    <extensions>
-        <extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension"/>
-    </extensions>
 
-    <!-- Add this for PHPUnit 7.0 until 7.4 -->
     <listeners>
-        <listener class="\DAMA\DoctrineTestBundle\PHPUnit\PHPUnitListener"/>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
-<!--    -->
-<!--    <listeners>-->
-<!--        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />-->
-<!--    </listeners>-->
 </phpunit>
