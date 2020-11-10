@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ColorRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -16,17 +17,28 @@ class Color {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=7)
+     * @Assert\NotBlank(message="This value can't to be blank!!")
+     * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
+     * @Assert\Regex(
+     *     pattern     = "/^#[a-f0-9]+$/i",
+     *     htmlPattern = "^#[a-fA-F0-9]+$"
+     * )
      */
-    private $ColorHexa;
+    private string $ColorHexa;
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank(message="This value can't to be blank!!")
+     * @Assert\Length(
+     *     min="3", minMessage="This value is so short min 3 char!!",
+     *     max="20", maxMessage="This value can't be exceed 50 char!!"
+     * )
      */
-    private $libel;
+    private string $libel;
 
     /**
      * @return mixed

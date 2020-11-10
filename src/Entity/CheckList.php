@@ -21,26 +21,32 @@ class CheckList {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *     message="This value can't to be blank!!"
+     * )
+     * @Assert\Length(
+     *     min="3", minMessage="This value is so short min 3 char!!",
+     *     max="50", maxMessage="This value can't be exceed 50 char!!"
+     *  )
      * @Groups({"get_user"})
      */
-    private $title;
+    private string $title;
 
     /**
      * @ORM\Column(type="datetime_immutable")
      * @Groups({"get_user"})
      */
-    private $createdAt;
+    private DateTimeImmutable $createdAt;
 
     /**
      * @ORM\Column(type="boolean")
      * @Groups({"get_user"})
      */
-    private $isFinished = false;
+    private bool $isFinished = false;
 
     /**
      * @ORM\OneToMany(targetEntity=Element::class, mappedBy="checkList", orphanRemoval=true)
@@ -51,6 +57,12 @@ class CheckList {
     /**
      * @var string
      * @ORM\Column(type="string", length=7)
+     * @Assert\NotBlank(message="This value can't to be blank!!")
+     * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
+     * @Assert\Regex(
+     *     pattern     = "/^#[a-f0-9]+$/i",
+     *     htmlPattern = "^#[a-fA-F0-9]+$"
+     * )
      */
     private $colorHexa = "#ffe333";
 

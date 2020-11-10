@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\ElementRepository;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -16,18 +17,23 @@ class Element {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    protected $id;
+    protected int $id;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="This value can't to be blank!!")
+     * @Assert\Length(
+     *     min="3", minMessage="This value is so short min 3 char!!",
+     *     max="50", maxMessage="This value can't be exceed 50 char!!"
+     * )
      */
-    private $name;
+    private string $name;
 
     /**
      * @var bool
      * @ORM\Column(type="boolean")
      */
-    private $isChecked = false;
+    private bool $isChecked = false;
 
     /**
      * @ORM\ManyToOne(targetEntity=CheckList::class, inversedBy="elements")
@@ -37,8 +43,14 @@ class Element {
     /**
      * @var string
      * @ORM\Column(type="string", length=7)
+     * @Assert\NotBlank(message="This value can't to be blank!!")
+     * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
+     * @Assert\Regex(
+     *     pattern     = "/^#[a-f0-9]+$/i",
+     *     htmlPattern = "^#[a-fA-F0-9]+$"
+     * )
      */
-    private $colorHexa = "#ffe333";
+    private string $colorHexa = "#ffe333";
 
     /**
      * @return mixed
