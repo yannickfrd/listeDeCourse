@@ -19,7 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller\Api
  * @Route("/api/check_list")
  */
-class CheckListController extends AbstractController {
+class CheckListApi extends AbstractController {
     /**
      * @var CheckListRepository
      */
