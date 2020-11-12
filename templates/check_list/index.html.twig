@@ -1,20 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CheckListController!{% endblock %}
+{% block title %}Create a checklist{% endblock %}
 
+        {% block stylesheets %}
+{#            {{ encore_entry_link_tags('checklist') }}#}
+        {% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'D:/wamp64/www/listes_des_courses/src/Controller/CheckListController.php'|file_link(0) }}">src/Controller/CheckListController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'D:/wamp64/www/listes_des_courses/templates/check_list/index.html.twig'|file_link(0) }}">templates/check_list/index.html.twig</a></code></li>
-    </ul>
-</div>
+            <h1 class="display-4">Check list</h1>
+            <hr class="my-4">
+
+            <button id="myModal" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#checklistModal">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="checklistModal" tabindex="-1" aria-labelledby="checklistLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id="flash-modal" role="alert"></div>
+                {{ form_start(checklistForm, {'methods': 'POST', 'action': path('post_the_check_list')}) }}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="checklistLabel">Add a new Check list</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{ form_widget(checklistForm) }}
+                    {{ form_errors(checklistForm) }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+                {{ form_end(checklistForm) }}
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('checklist') }}
+        {% endblock %}

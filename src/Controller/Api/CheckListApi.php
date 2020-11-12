@@ -3,7 +3,6 @@
 namespace App\Controller\Api;
 
 use App\Entity\CheckList;
-use App\Entity\Color;
 use App\Form\CheckListFormType;
 use App\Repository\CheckListRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -20,17 +19,11 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Route("/api/check_list")
  */
 class CheckListApi extends AbstractController {
-    /**
-     * @var CheckListRepository
-     */
+    /** @var CheckListRepository */
     protected $repoList;
-    /**
-     * @var SerializerInterface
-     */
+    /** @var SerializerInterface */
     protected $serializer;
-    /**
-     * @var EntityManagerInterface
-     */
+    /** @var EntityManagerInterface */
     protected $em;
 
     /**
@@ -43,7 +36,6 @@ class CheckListApi extends AbstractController {
         $this->serializer = $serializer;
         $this->em = $em;
     }
-
 
     /**
      * @return JsonResponse
@@ -77,17 +69,11 @@ class CheckListApi extends AbstractController {
     public function postCheckList(Request $request, SerializerInterface $serializer): JsonResponse {
         try {
             $list = $serializer->deserialize($request->getContent(), CheckList::class, 'json');
-            foreach (json_decode($request->getContent(), true) as $relation => $value) {
-                if ($relation==='color'){
-                    $getColor = $this->em->getRepository(Color::class)->find($value);
-                    if(!$getColor) throw $this->createNotFoundException('No Color found for '. $value);
-                    $list->setColor($getColor);
-                }
-            }
             $this->em->persist($list);
             $this->em->flush();
-            return $this->json(['status' => 201, 'message' => 'THe check list is correctly save'], 201);
+            return $this->json(['status' => 201, 'message' => 'The check list is correctly save'], 201);
         }catch (NotEncodableValueException $e){
+            $this->addFlash('succes', $e->getMessage());
             return $this->json(['status' => 400, 'message' => $e->getMessage()], 400);
         }
     }

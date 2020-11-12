@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Form\CheckListFormType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,8 +14,10 @@ class CheckListController extends AbstractController
      */
     public function index(): Response
     {
+        $checklistForm = $this->createForm(CheckListFormType::class);
+
         return $this->render('check_list/index.html.twig', [
-            'controller_name' => 'CheckListController',
+            'checklistForm' => $checklistForm->createView()
         ]);
     }
 }
