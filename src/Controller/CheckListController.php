@@ -18,7 +18,7 @@ class CheckListController extends AbstractController
         $checklistForm = $this->createForm(CheckListFormType::class);
 
         return $this->render('check_list/index.html.twig', [
-            'checklists' => $checkListRepository->findAll(),
+                'checklists' => $checkListRepository->findAll(),
             'checklistForm' => $checklistForm->createView()
         ]);
     }

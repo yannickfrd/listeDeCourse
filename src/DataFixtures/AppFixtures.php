@@ -11,21 +11,9 @@ use Doctrine\Persistence\ObjectManager;
 use Faker;
 
 class AppFixtures extends Fixture {
-    /**
-     * @var \Doctrine\ORM\EntityRepository|\Doctrine\Persistence\ObjectRepository
-     */
     protected $repoColor;
-    /**
-     * @var \Doctrine\ORM\EntityRepository|\Doctrine\Persistence\ObjectRepository
-     */
     protected $repoElement;
-    /**
-     * @var \Doctrine\ORM\EntityRepository|\Doctrine\Persistence\ObjectRepository
-     */
     protected $repoList;
-    /**
-     * @var Faker\Generator
-     */
     protected $faker;
 
     /**
@@ -44,11 +32,11 @@ class AppFixtures extends Fixture {
      */
     public function load(ObjectManager $manager) {
         $colors = [
-            "red" => "#ffb3b3",
-            "blue" => "#99ccff",
-            "green" => "#b3ffe0",
-            "yellow" => "#ffffb3",
-            "purple" => "#eeccff",
+            "red" => "#fad2d2",
+            "blue" => "#d2eefa",
+            "green" => "#c0fcc2",
+            "yellow" => "#f9fdc6",
+            "purple" => "#f1daf1",
             ];
         // New colors
         foreach ($colors as $key => $value){

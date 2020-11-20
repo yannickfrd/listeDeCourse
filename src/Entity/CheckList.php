@@ -57,6 +57,7 @@ class CheckList {
     /**
      * @var string
      * @ORM\Column(type="string", length=7)
+     * @Groups({"get_user"})
      * @Assert\NotBlank(message="This value can't to be blank!!")
      * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
      * @Assert\Regex(
