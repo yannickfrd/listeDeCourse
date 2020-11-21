@@ -67,6 +67,11 @@ class CheckList {
      */
     private $colorHexa = "#ffe333";
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="checklists")
+     */
+    private $user;
+
     public function __construct() {
         $this->createdAt = new DateTimeImmutable();
         $this->elements = new ArrayCollection();
@@ -147,6 +152,18 @@ class CheckList {
     public function setColorHexa(string $colorHexa): self
     {
         $this->colorHexa = $colorHexa;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

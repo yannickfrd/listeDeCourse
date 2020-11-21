@@ -8,6 +8,21 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand">*_°</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link active" href="{{ path('check_list') }}">Home<span class="sr-only">(current)</span></a>
+            </div>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-link active" href="{{ path('app_login') }}">Login</a>
+                <a class="nav-link active" href="{{ path('app_register') }}">Restration</a>
+            </div>
+        </div>
+    </nav>
     {% block body %}{% endblock %}
 
         {{ encore_entry_script_tags('app') }}

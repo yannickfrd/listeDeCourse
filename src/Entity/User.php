@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeImmutable;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -35,6 +38,22 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\OneToMany(targetEntity=CheckList::class, mappedBy="user")
+     */
+    private $checklists;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     */
+    private $createdAt;
+
+    public function __construct() {
+        $this->createdAt = new DateTimeImmutable();
+        $this->checklists = new ArrayCollection();
+        $this->roles[] = 'ROLE_USER';
+    }
 
     public function getId(): ?int
     {
@@ -112,5 +131,40 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection|CheckList[]
+     */
+    public function getChecklists(): Collection
+    {
+        return $this->checklists;
+    }
+
+    public function addChecklist(CheckList $checklist): self
+    {
+        if (!$this->checklists->contains($checklist)) {
+            $this->checklists[] = $checklist;
+            $checklist->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChecklist(CheckList $checklist): self
+    {
+        if ($this->checklists->removeElement($checklist)) {
+            // set the owning side to null (unless already changed)
+            if ($checklist->getUser() === $this) {
+                $checklist->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?DateTimeImmutable
+    {
+        return $this->createdAt;
     }
 }
