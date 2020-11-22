@@ -12,8 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CheckListFormType extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('title', TextType::class, [
                 'attr' => [

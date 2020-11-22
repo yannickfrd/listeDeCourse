@@ -22,3 +22,6 @@ services:
     App\Listener\RegisterListener:
         tags:
             - { name: doctrine.event_listener, event: postPersist }
+
+    App\Security\Voter\CheckListVoter:
+        tags: { name: security.voter }

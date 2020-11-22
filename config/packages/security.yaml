@@ -35,5 +35,9 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/check_list, roles: ROLE_USER }
         # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+
+    role_hierarchy:
+        ROLE_USER: [POST_VIEW, POST_EDIT]
+        ROLE_ADMIN: ROLE_USER

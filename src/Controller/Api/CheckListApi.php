@@ -6,6 +6,7 @@ use App\Entity\CheckList;
 use App\Form\CheckListFormType;
 use App\Repository\CheckListRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\LimitSubqueryOutputWalker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,17 +20,15 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Route("/api/check_list")
  */
 class CheckListApi extends AbstractController {
-    /** @var CheckListRepository */
-    protected $repoList;
-    /** @var SerializerInterface */
-    protected $serializer;
-    /** @var EntityManagerInterface */
-    protected $em;
+    protected CheckListRepository $repoList;
+    protected SerializerInterface $serializer;
+    protected EntityManagerInterface $em;
 
     /**
      * CheckListController constructor.
-     * @param $repoList
-     * @param $serializer
+     * @param CheckListRepository $repoList
+     * @param SerializerInterface $serializer
+     * @param EntityManagerInterface $em
      */
     public function __construct(CheckListRepository $repoList, SerializerInterface $serializer, EntityManagerInterface $em) {
         $this->repoList = $repoList;
@@ -69,6 +68,7 @@ class CheckListApi extends AbstractController {
     public function postCheckList(Request $request, SerializerInterface $serializer): JsonResponse {
         try {
             $list = $serializer->deserialize($request->getContent(), CheckList::class, 'json');
+            $list->setUser($this->getUser());
             $this->em->persist($list);
             $this->em->flush();
             return $this->json(['status' => 201, 'message' => 'The check list is correctly save'], 201);
