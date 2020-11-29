@@ -18,8 +18,12 @@
                 <a class="nav-link active" href="{{ path('check_list') }}">Home<span class="sr-only">(current)</span></a>
             </div>
             <div class="navbar-nav ml-auto">
-                <a class="nav-link active" href="{{ path('app_login') }}">Login</a>
-                <a class="nav-link active" href="{{ path('app_register') }}">Restration</a>
+                {% if app.user %}
+                    <a class="nav-link active" href="{{ path('app_logout') }}">Logout</a>
+                {% else %}
+                    <a class="nav-link active" href="{{ path('app_login') }}">Login</a>
+                    <a class="nav-link active" href="{{ path('app_register') }}">Restration</a>
+                {% endif %}
             </div>
         </div>
     </nav>

@@ -38,24 +38,58 @@
             <h1 class="display-4">Check list</h1>
             <hr class="my-4">
 
-            <button id="myModal" type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#checklistModal">
-                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                </svg>
+            <button id="myModal" type="button" class="btn btn-outline-secondary"
+                    data-toggle="modal" data-target="#checklistModal">
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus"
+                     fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd"
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>New checklist
             </button>
 
+            <!-- Liste des checklists -->
+            <div class="container">
+                <div class="row justify-content-lg-center">
+                    <div class="col col-lg-5">
+                        <ul id="checklist" class="list-group list-group-flush">
+                            {% for list in checklists %}
+                                {% if is_granted('POST_VIEW', list) %}
+                                    <div class="d-flex justify-content-between" style="background-color: {{ list.colorHexa }}">
+                                        <a href="#" class="m-2 w-100 align-items-center">{{ list.title }}</a>
+                                        <div>
+                                            {% if list.elements|length > 0 %}
+                                                <span class="badge badge-secondary badge-pill">
+                                                    {{ list.elements|length }}
+                                                </span>
+                                            {% endif %}
+                                            <div class="dropright">
+                                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                         stroke-width="2"
+                                                         stroke-linecap="round" stroke-linejoin="round"
+                                                         class="feather feather-more-vertical align-middle">
+                                                        <circle cx="12" cy="12" r="1"></circle>
+                                                        <circle cx="12" cy="5" r="1"></circle>
+                                                        <circle cx="12" cy="19" r="1"></circle>
+                                                    </svg>
+                                                </a>
+
+                                                <!-- Menu des otions de chaque checklist -->
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item bg-light" href="#">Edit</a>
+                                                    <a class="dropdown-item bg-danger text-white" href="#">Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
-    <!-- Liste des checklists -->
-    <ul id="checklist" class="list-group list-group-flush">
-        {% for list in checklists %}
-            {% if is_granted('POST_VIEW', list) %}
-                <li class="list-group-item" style="background-color: {{ list.colorHexa }}">{{ list.title }}</li>
-            {% endif %}
-        {% endfor %}
-    </ul>
-
 {% endblock %}
 
         {% block javascripts %}
