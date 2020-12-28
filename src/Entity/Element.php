@@ -23,7 +23,7 @@ class Element {
      * @ORM\Column(type="string", length=50)
      * @Assert\NotBlank(message="This value can't to be blank!!")
      * @Assert\Length(
-     *     min="3", minMessage="This value is so short min 3 char!!",
+     *     min="1", minMessage="This value is so short min 3 char!!",
      *     max="50", maxMessage="This value can't be exceed 50 char!!"
      * )
      */
@@ -38,7 +38,7 @@ class Element {
     /**
      * @ORM\ManyToOne(targetEntity=CheckList::class, inversedBy="elements")
      */
-    private $checkList;
+    private ?CheckList $checkList;
 
     /**
      * @var string

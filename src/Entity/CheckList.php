@@ -29,7 +29,7 @@ class CheckList {
      *     message="This value can't to be blank!!"
      * )
      * @Assert\Length(
-     *     min="3", minMessage="This value is so short min 3 char!!",
+     *     min="3", minMessage="This value is too short min 3 char!!",
      *     max="50", maxMessage="This value can't be exceed 50 char!!"
      *  )
      * @Groups({"get_user"})
@@ -55,24 +55,25 @@ class CheckList {
     private $elements;
 
     /**
-     * @var string
      * @ORM\Column(type="string", length=7)
      * @Groups({"get_user"})
      * @Assert\NotBlank(message="This value can't to be blank!!")
      * @Assert\Length(max="7", maxMessage="This value {{ value }} can't be exceed 7 char!!")
      * @Assert\Regex(
      *     pattern     = "/^#[a-f0-9]+$/i",
-     *     htmlPattern = "^#[a-fA-F0-9]+$"
+     *     htmlPattern = "^#[a-fA-F0-9]+$",
+     *     message="This value does not match the expected {{ charset }} charset."
      * )
      */
-    private $colorHexa = "#ffe333";
+    private ?string $colorHexa;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="checklists")
      */
-    private $user;
+    private ?User $user;
 
     public function __construct() {
+        $this->colorHexa = "#ffe333";
         $this->createdAt = new DateTimeImmutable();
         $this->elements = new ArrayCollection();
     }
@@ -80,7 +81,7 @@ class CheckList {
     /**
      * @return mixed
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }

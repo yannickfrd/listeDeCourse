@@ -8,8 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class CheckListTest extends KernelTestCase {
 
     public function getEntity(): CheckList {
-        return (new CheckList())
-            ->setTitle("Nouveau titre ;)");
+        return (new CheckList())->setTitle("Nouveau titre ;)");
     }
 
     /**
@@ -21,14 +20,24 @@ class CheckListTest extends KernelTestCase {
         $error = self::$container->get('validator')->validate($list);
         $this->assertCount($number, $error);
     }
-
-    public function testCheckList () {
+    /** @test */
+    public function checklist () {
         $list = $this->getEntity();
-        $this->assertHasErrors($list, 0);
+        $this->assertHasErrors($list);
     }
-
-    public function testBlankCheckList () {
+    /** @test */
+    public function title_blank () {
         $list = $this->getEntity()->setTitle('');
+        $this->assertHasErrors($list, 2);
+    }
+    /** @test */
+    public function title_so_short () {
+        $list = $this->getEntity()->setTitle('d');
+        $this->assertHasErrors($list, 1);
+    }
+    /** @test */
+    public function title_so_long () {
+        $list = $this->getEntity()->setTitle('knfsknfdjnjnfoaznfjednfjenafaojnfedmfdlifndoifndsfdsfdf');
         $this->assertHasErrors($list, 1);
     }
 }

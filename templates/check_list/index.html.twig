@@ -10,9 +10,9 @@
     <div class="modal fade" id="checklistModal" tabindex="-1" aria-labelledby="checklistLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                {# Message flash #}
-                <div id="flash-modal" role="alert"></div>
-                {# !!! Message flash #}
+
+                {# Message flash #}<div id="flash-modal" role="alert"></div>{# !!! Message flash #}
+
                 {{ form_start(checklistForm, {'methods': 'POST', 'action': path('post_the_check_list')}) }}
                 <div class="modal-header">
                     <h5 class="modal-title" id="checklistLabel">Add a new Check list</h5>
@@ -47,14 +47,19 @@
             </button>
 
             <!-- Liste des checklists -->
-            <div class="container">
+            <div class="container mt-5">
+
+                <!-- Options de visuel des checklists -->
+                <button type="button" class="btn btn-light"><i class="fas fa-list"></i></button>
+                <button type="button" class="btn btn-dark"><i class="fas fa-th"></i></button>
+
                 <div class="row justify-content-lg-center">
                     <div class="col col-lg-5">
                         <ul id="checklist" class="list-group list-group-flush">
                             {% for list in checklists %}
                                 {% if is_granted('POST_VIEW', list) %}
                                     <div class="d-flex justify-content-between" style="background-color: {{ list.colorHexa }}">
-                                        <a href="#" class="m-2 w-100 align-items-center">{{ list.title }}</a>
+                                        <a href="{{ path('check_list_add_products', {'id': list.id}) }}" class="m-2 w-100 align-items-center">{{ list.title }}</a>
                                         <div>
                                             {% if list.elements|length > 0 %}
                                                 <span class="badge badge-secondary badge-pill">
@@ -63,21 +68,15 @@
                                             {% endif %}
                                             <div class="dropright">
                                                 <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                                         viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                         stroke-width="2"
-                                                         stroke-linecap="round" stroke-linejoin="round"
-                                                         class="feather feather-more-vertical align-middle">
-                                                        <circle cx="12" cy="12" r="1"></circle>
-                                                        <circle cx="12" cy="5" r="1"></circle>
-                                                        <circle cx="12" cy="19" r="1"></circle>
-                                                    </svg>
+                                                    <i class="fas fa-ellipsis-v mr-3"></i>
                                                 </a>
 
                                                 <!-- Menu des otions de chaque checklist -->
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item bg-light" href="#">Edit</a>
-                                                    <a class="dropdown-item bg-danger text-white" href="#">Delete</a>
+                                                    <a class="dropdown-item bg-danger text-white delete-checklist"
+                                                       href="{{ path('delete_the_check_list', {'id': list.id}) }}">
+                                                        Delete</a>
                                                 </div>
                                             </div>
                                         </div>

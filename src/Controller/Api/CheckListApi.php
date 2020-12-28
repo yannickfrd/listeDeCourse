@@ -4,15 +4,14 @@ namespace App\Controller\Api;
 
 use App\Entity\CheckList;
 use App\Form\CheckListFormType;
-use App\Repository\CheckListRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Tools\Pagination\LimitSubqueryOutputWalker;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Serializer\Exception\NotEncodableValueException;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 /**
  * Class CheckListController
@@ -20,20 +19,23 @@ use Symfony\Component\Routing\Annotation\Route;
  * @Route("/api/check_list")
  */
 class CheckListApi extends AbstractController {
-    protected CheckListRepository $repoList;
-    protected SerializerInterface $serializer;
-    protected EntityManagerInterface $em;
+    private SerializerInterface $serializer;
+    private EntityManagerInterface $em;
+    private ValidatorInterface $validator;
 
     /**
      * CheckListController constructor.
-     * @param CheckListRepository $repoList
      * @param SerializerInterface $serializer
      * @param EntityManagerInterface $em
+     * @param ValidatorInterface $validator
      */
-    public function __construct(CheckListRepository $repoList, SerializerInterface $serializer, EntityManagerInterface $em) {
-        $this->repoList = $repoList;
+    public function __construct(
+        SerializerInterface $serializer,
+        EntityManagerInterface $em,
+        ValidatorInterface $validator) {
         $this->serializer = $serializer;
         $this->em = $em;
+        $this->validator = $validator;
     }
 
     /**
@@ -44,7 +46,7 @@ class CheckListApi extends AbstractController {
         return $this->json([
             'message' => 'Welcome to your new controller!',
             'checkLists' => $this->serializer->serialize(
-                $this->repoList->findAll(),'json', ['groups'=>'get_user'])], 200);
+                $this->em->getRepository(CheckList::class)->findAll(),'json', ['groups'=>'get_user'])]);
     }
 
     /**
@@ -55,25 +57,30 @@ class CheckListApi extends AbstractController {
     public function getTheCheckList($id): JsonResponse {
         return $this->json([
             'message' => 'Welcome to your new controller!',
-            'checkLists' => $this->serializer->serialize(
-                $this->repoList->find($id),'json', ['groups'=>'get_user'])], 200);
+            'checkList' => $this->serializer->serialize(
+                $this->em->getRepository(CheckList::class)->find($id),'json', ['groups'=>'get_user'])]);
     }
 
     /**
      * @param Request $request
-     * @param SerializerInterface $serializer
+     * @param ValidatorInterface $validator
      * @return JsonResponse
      * @Route("/post", name="post_the_check_list", methods={"POST"})
      */
-    public function postCheckList(Request $request, SerializerInterface $serializer): JsonResponse {
+    public function postCheckList(Request $request, ValidatorInterface $validator): JsonResponse {
         try {
-            $list = $serializer->deserialize($request->getContent(), CheckList::class, 'json');
+            $list = $this->serializer->deserialize($request->getContent(), CheckList::class, 'json');
+
+            $errors = $validator->validate($list);
+            if (count($errors) > 0) {
+                return $this->json(['status' => 400, 'message' => $errors[0]->getMessage()], 400);
+            }
             $list->setUser($this->getUser());
             $this->em->persist($list);
             $this->em->flush();
             return $this->json(['status' => 201, 'message' => 'The check list is correctly save'], 201);
         }catch (NotEncodableValueException $e){
-            $this->addFlash('succes', $e->getMessage());
+            $this->addFlash('success', $e->getMessage());
             return $this->json(['status' => 400, 'message' => $e->getMessage()], 400);
         }
     }
@@ -85,22 +92,32 @@ class CheckListApi extends AbstractController {
      * @Route("/put/{id}", name="put_the_check_list", methods={"PUT"})
      */
     public function editTheChecklist($id, Request $request): JsonResponse {
-        $list = $this->repoList->find($id);
+        $list = $this->em->getRepository(CheckList::class)->findOneById($id);
         if (!$list) throw $this->createNotFoundException('No product found for id '.$id);
+
+        $data = json_decode($request->getContent(), true);
+
+        if (empty($data['title'])) {
+            return $this->json(["message" => "The title can not to be null"], 400);
+        }
+        if (empty($data['colorHexa'])) { $data['colorHexa'] = "#ffe333"; }
 
         try {
             $form = $this->createForm(CheckListFormType::class, $list);
-            $form->submit(json_decode($request->getContent(), true));
+            $form->submit($data);
 
-            if ($form->isValid()){
-                $this->em->persist($list);
-                $this->em->flush();
-                return $this->json(['status' => 202, 'message' => 'The check list is correctly updated'], 202);
+            $errors = $this->validator->validate($list);
+            if (count($errors) > 0) {
+                return $this->json([ 'message' => $errors[0]->getMessage() ], 400);
             }
-        }catch (NotEncodableValueException $e){
-            return $this->json(['status' => 400,'message' => $e->getMessage()], 400);
+
+            $this->em->persist($list);
+            $this->em->flush();
+
+        } catch (NotEncodableValueException $e) {
+            return $this->json(['message' => $e->getMessage()], 400);
         }
-        return $this->json(null, 204);
+        return $this->json(['message' => 'The check list is correctly updated']);
     }
 
     /**
@@ -109,12 +126,12 @@ class CheckListApi extends AbstractController {
      * @Route("/delete/{id}", name="delete_the_check_list", methods={"DELETE"})
      */
     public function deleteTheCheckList($id): JsonResponse {
-        $list = $this->repoList->find($id);
+        $list = $this->em->getRepository(CheckList::class)->find($id);
         if (!$list) throw $this->createNotFoundException('No product found for id '.$id);
         try{
             $this->em->remove($list);
             $this->em->flush();
-            return $this->json(['status' => 202, 'message' => 'The check list is correctly deleted'], 202);
+            return $this->json(['status' => 200, 'message' => 'The check list is correctly deleted']);
         }catch (NotEncodableValueException $e){
             return $this->json(['status' => 400,'message' => $e->getMessage()], 400);
         }
