@@ -50,7 +50,7 @@ class postApiChecklistTest extends WebTestCase
         ];
         yield [
             [ "title" => "hs" ],
-            'This value is so short min 3 char!!'
+            'This value is too short min 3 char!!'
         ];
         yield [
             [ "title" => "hshshshshshshshshshshshshshshshshshshshshshsshshshshs" ],
